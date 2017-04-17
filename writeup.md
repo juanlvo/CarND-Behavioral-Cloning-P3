@@ -119,10 +119,10 @@ My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
-* writeup_report.md or writeup_report.pdf summarizing the results
+* writeup.md summarizing the results
 
 ####2. Submission includes functional code
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
+Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing
 ```sh
 python drive.py model.h5
 ```
@@ -135,9 +135,59 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+My model is the implementation of the neural network of NVIDEA, this network consist in
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+________________________________¦____________________¦__________¦______________________________________
+Layer (type)                     Output Shape          Param #     Connected to
+================================¦====================¦==========¦======================================
+lambda_1 (Lambda)                (None, 160, 320, 3)   0           lambda_input_1[0][0]
+____________________________________________________________________________________________________
+cropping2d_1 (Cropping2D)        (None, 70, 320, 3)    0           lambda_1[0][0]
+____________________________________________________________________________________________________
+convolution2d_1 (Convolution2D)  (None, 33, 158, 24)   1824        cropping2d_1[0][0]
+____________________________________________________________________________________________________
+dropout_1 (Dropout)              (None, 33, 158, 24)   0           convolution2d_1[0][0]
+____________________________________________________________________________________________________
+elu_1 (ELU)                      (None, 33, 158, 24)   0           dropout_1[0][0]
+____________________________________________________________________________________________________
+convolution2d_2 (Convolution2D)  (None, 15, 77, 36)    21636       elu_1[0][0]
+____________________________________________________________________________________________________
+dropout_2 (Dropout)              (None, 15, 77, 36)    0           convolution2d_2[0][0]
+____________________________________________________________________________________________________
+elu_2 (ELU)                      (None, 15, 77, 36)    0           dropout_2[0][0]
+____________________________________________________________________________________________________
+convolution2d_3 (Convolution2D)  (None, 6, 37, 48)     43248       elu_2[0][0]
+____________________________________________________________________________________________________
+dropout_3 (Dropout)              (None, 6, 37, 48)     0           convolution2d_3[0][0]
+____________________________________________________________________________________________________
+elu_3 (ELU)                      (None, 6, 37, 48)     0           dropout_3[0][0]
+____________________________________________________________________________________________________
+convolution2d_4 (Convolution2D)  (None, 4, 35, 64)     27712       elu_3[0][0]
+____________________________________________________________________________________________________
+dropout_4 (Dropout)              (None, 4, 35, 64)     0           convolution2d_4[0][0]
+____________________________________________________________________________________________________
+elu_4 (ELU)                      (None, 4, 35, 64)     0           dropout_4[0][0]
+____________________________________________________________________________________________________
+convolution2d_5 (Convolution2D)  (None, 2, 33, 64)     36928       elu_4[0][0]
+____________________________________________________________________________________________________
+dropout_5 (Dropout)              (None, 2, 33, 64)     0           convolution2d_5[0][0]
+____________________________________________________________________________________________________
+elu_5 (ELU)                      (None, 2, 33, 64)     0           dropout_5[0][0]
+____________________________________________________________________________________________________
+flatten_1 (Flatten)              (None, 4224)          0           elu_5[0][0]
+____________________________________________________________________________________________________
+dense_1 (Dense)                  (None, 100)           422500      flatten_1[0][0]
+____________________________________________________________________________________________________
+dense_2 (Dense)                  (None, 50)            5050        dense_1[0][0]
+____________________________________________________________________________________________________
+dense_3 (Dense)                  (None, 10)            510         dense_2[0][0]
+____________________________________________________________________________________________________
+dense_4 (Dense)                  (None, 1)             11          dense_3[0][0]
+====================================================================================================
+Total params: 559,419
+Trainable params: 559,419
+Non-trainable params: 0
+____________________________________________________________________________________________________
 
 ####2. Attempts to reduce overfitting in the model
 
