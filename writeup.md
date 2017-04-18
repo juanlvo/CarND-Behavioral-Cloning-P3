@@ -17,9 +17,9 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: nvidia.png "Model Visualization NVIDIA"
-[image2]: center.png "Center camera in the car"
-[image3]: left.png "Left camera in the car"
-[image4]: right.png "Right camera in the car"
+[image2]: center.jpg "Center camera in the car"
+[image3]: left.jpg "Left camera in the car"
+[image4]: right.jpg "Right camera in the car"
 [image5]: figure_1_16.png "Training graph"
 
 
