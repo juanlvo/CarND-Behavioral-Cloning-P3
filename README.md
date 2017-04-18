@@ -53,12 +53,7 @@ The simulator can be downloaded from the classroom. In the classroom, we have al
 
 ### `drive.py`
 
-Usage of `drive.py` requires you have saved the trained model as an h5 file, i.e. `model.h5`. See the [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model) for how to create this file using the following command:
-```sh
-model.save(filepath)
-```
-
-Once the model has been saved, it can be used with drive.py using this command:
+For driving the car in autonomous mode you need to use drive.py using this command:
 
 ```sh
 python drive.py model.h5
