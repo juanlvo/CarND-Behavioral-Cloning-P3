@@ -75,7 +75,7 @@ The goals / steps of this project are the following:
 	<tr>
 		<td>Is the training data chosen appropriately?</td>
 		<td>The training data choose was the data from udacity, because the author is not accurate enough when is driving the simulator</td>
-	</tr>			
+	</tr>
 </table> 
 
 <b>Architecture and Training Documentation</b>
@@ -95,7 +95,7 @@ The goals / steps of this project are the following:
 	<tr>
 		<td>Is the creation of the training dataset and training process documented?</td>
 		<td>The README describes how the model was trained and what the characteristics of the dataset are. Information such as how the dataset was generated and examples of images from the dataset should be included.</td>
-	</tr>		
+	</tr>
 </table> 
 
 <b>Simulation:</b>
@@ -137,57 +137,175 @@ The model.py file contains the code for training and saving the convolution neur
 
 My model is the implementation of the neural network of NVIDEA, this network consist in
 
-____________________________________________________________________________________________________
-Layer (type)                     Output Shape          Param #     Connected to
-====================================================================================================
-lambda_1 (Lambda)                (None, 160, 320, 3)   0           lambda_input_1[0][0]
-____________________________________________________________________________________________________
-cropping2d_1 (Cropping2D)        (None, 70, 320, 3)    0           lambda_1[0][0]
-____________________________________________________________________________________________________
-convolution2d_1 (Convolution2D)  (None, 33, 158, 24)   1824        cropping2d_1[0][0]
-____________________________________________________________________________________________________
-dropout_1 (Dropout)              (None, 33, 158, 24)   0           convolution2d_1[0][0]
-____________________________________________________________________________________________________
-elu_1 (ELU)                      (None, 33, 158, 24)   0           dropout_1[0][0]
-____________________________________________________________________________________________________
-convolution2d_2 (Convolution2D)  (None, 15, 77, 36)    21636       elu_1[0][0]
-____________________________________________________________________________________________________
-dropout_2 (Dropout)              (None, 15, 77, 36)    0           convolution2d_2[0][0]
-____________________________________________________________________________________________________
-elu_2 (ELU)                      (None, 15, 77, 36)    0           dropout_2[0][0]
-____________________________________________________________________________________________________
-convolution2d_3 (Convolution2D)  (None, 6, 37, 48)     43248       elu_2[0][0]
-____________________________________________________________________________________________________
-dropout_3 (Dropout)              (None, 6, 37, 48)     0           convolution2d_3[0][0]
-____________________________________________________________________________________________________
-elu_3 (ELU)                      (None, 6, 37, 48)     0           dropout_3[0][0]
-____________________________________________________________________________________________________
-convolution2d_4 (Convolution2D)  (None, 4, 35, 64)     27712       elu_3[0][0]
-____________________________________________________________________________________________________
-dropout_4 (Dropout)              (None, 4, 35, 64)     0           convolution2d_4[0][0]
-____________________________________________________________________________________________________
-elu_4 (ELU)                      (None, 4, 35, 64)     0           dropout_4[0][0]
-____________________________________________________________________________________________________
-convolution2d_5 (Convolution2D)  (None, 2, 33, 64)     36928       elu_4[0][0]
-____________________________________________________________________________________________________
-dropout_5 (Dropout)              (None, 2, 33, 64)     0           convolution2d_5[0][0]
-____________________________________________________________________________________________________
-elu_5 (ELU)                      (None, 2, 33, 64)     0           dropout_5[0][0]
-____________________________________________________________________________________________________
-flatten_1 (Flatten)              (None, 4224)          0           elu_5[0][0]
-____________________________________________________________________________________________________
-dense_1 (Dense)                  (None, 100)           422500      flatten_1[0][0]
-____________________________________________________________________________________________________
-dense_2 (Dense)                  (None, 50)            5050        dense_1[0][0]
-____________________________________________________________________________________________________
-dense_3 (Dense)                  (None, 10)            510         dense_2[0][0]
-____________________________________________________________________________________________________
-dense_4 (Dense)                  (None, 1)             11          dense_3[0][0]
-====================================================================================================
+<table>
+	<tr>
+		<th>Layer (type)</th>
+		<th>Output Shape</th>
+		<th>Param #</th>
+		<th>Connected to</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>lambda_1 (Lambda)</td>
+		<td>(None, 160, 320, 3)</td>
+		<td>0</td>
+		<td>lambda_input_1[0][0]</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>cropping2d_1 (Cropping2D)</td>
+		<td>(None, 70, 320, 3)</td>
+		<td>0</td>
+		<td>lambda_1[0][0]</td>
+		<td>Cropping the image for generalize more the model</td>
+	</tr>
+	<tr>
+		<td>convolution2d_1 (Convolution2D)</td>
+		<td>(None, 33, 158, 24)</td>
+		<td>1824</td>
+		<td>convolution2d_1[0][0]</td>
+		<td>First Convolutional layer (24x5x5) describe it by NVIDEA arquitecture</td>
+	</tr>
+	<tr>
+		<td>dropout_1 (Dropout)</td>
+		<td>(None, 33, 158, 24)</td>
+		<td>0</td>
+		<td>convolution2d_1[0][0]</td>
+		<td>Dropout of 59% avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>elu_1 (ELU)</td>
+		<td>(None, 33, 158, 24)</td>
+		<td>0</td>
+		<td>dropout_1[0][0]</td>
+		<td>ELU avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>convolution2d_2 (Convolution2D)</td>
+		<td>(None, 15, 77, 36)</td>
+		<td>21636</td>
+		<td>elu_1[0][0]</td>
+		<td>Second Convolutional layer (36x5x5) describe it by NVIDEA arquitecture</td>		
+	</tr>
+	<tr>
+		<td>dropout_2 (Dropout)</td>
+		<td>(None, 15, 77, 36)</td>
+		<td>0</td>
+		<td>convolution2d_2[0][0]</td>
+		<td>Dropout of 49% avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>elu_2 (ELU)</td>
+		<td>(None, 15, 77, 36)</td>
+		<td>0</td>
+		<td>dropout_2[0][0]</td>
+		<td>ELU avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>convolution2d_3 (Convolution2D)</td>
+		<td>(None, 6, 37, 48)</td>
+		<td>43248</td>
+		<td>elu_2[0][0]</td>
+		<td>Third Convolutional layer (48x5x5) describe it by NVIDEA arquitecture</td>		
+	</tr>
+	<tr>
+		<td>dropout_3 (Dropout)</td>
+		<td>(None, 6, 37, 48)</td>
+		<td>0</td>
+		<td>convolution2d_3[0][0]</td>
+		<td>Dropout of 39% avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>elu_3 (ELU)</td>
+		<td>(None, 6, 37, 48)</td>
+		<td>0</td>
+		<td>dropout_3[0][0]</td>
+		<td>ELU avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>convolution2d_4 (Convolution2D)</td>
+		<td>(None, 4, 35, 64)</td>
+		<td>27712</td>
+		<td>elu_3[0][0]</td>
+		<td>Fourth Convolutional layer (64x3x3) describe it by NVIDEA arquitecture</td>		
+	</tr>
+	<tr>
+		<td>dropout_4 (Dropout)</td>
+		<td>(None, 4, 35, 64)</td>
+		<td>0</td>
+		<td>convolution2d_4[0][0]</td>
+		<td>Dropout of 29% avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>elu_4 (ELU)</td>
+		<td>(None, 4, 35, 64)</td>
+		<td>0</td>
+		<td>dropout_4[0][0]</td>
+		<td>ELU avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>convolution2d_5 (Convolution2D)</td>
+		<td>(None, 2, 33, 64)</td>
+		<td>36928</td>
+		<td>elu_4[0][0]</td>
+		<td>Fifth Convolutional layer (64x3x3) describe it by NVIDEA arquitecture</td>		
+	</tr>
+	<tr>
+		<td>dropout_5 (Dropout)</td>
+		<td>(None, 2, 33, 64)</td>
+		<td>0</td>
+		<td>convolution2d_5[0][0]</td>
+		<td>Dropout of 19% avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>elu_5 (ELU)</td>
+		<td>(None, 2, 33, 64)</td>
+		<td>0</td>
+		<td>dropout_5[0][0]</td>
+		<td>ELU avoiding overfiting</td>
+	</tr>
+	<tr>
+		<td>flatten_1 (Flatten)</td>
+		<td>(None, 4224)</td>
+		<td>0</td>
+		<td>elu_5[0][0]</td>
+		<td>Flatten layer describe it by NVIDEA arquitecture</td>
+	</tr>
+	<tr>
+		<td>dense_1 (Dense)</td>
+		<td>(None, 100)</td>
+		<td>422500</td>
+		<td>flatten_1[0][0]</td>
+		<td>Dense layer of 100 describe it by NVIDEA arquitecture</td>
+	</tr>
+	<tr>
+		<td>dense_2 (Dense)</td>
+		<td>(None, 50)</td>
+		<td>5050</td>
+		<td>dense_1[0][0]</td>
+		<td>Dense layer of 50 describe it by NVIDEA arquitecture</td>
+	</tr>
+	<tr>
+		<td>dense_3 (Dense)</td>
+		<td>(None, 10)</td>
+		<td>510</td>
+		<td>dense_2[0][0]</td>
+		<td>Dense layer of 10 describe it by NVIDEA arquitecture</td>
+	</tr>
+	<tr>
+		<td>dense_4 (Dense)</td>
+		<td>(None, 1)</td>
+		<td>11</td>
+		<td>dense_3[0][0]</td>
+		<td>Dense layer of 1 describe it by NVIDEA arquitecture</td>
+	</tr>
+</table>
+
+
 Total params: 559,419
 Trainable params: 559,419
 Non-trainable params: 0
-____________________________________________________________________________________________________
+
 
 ####2. Attempts to reduce overfitting in the model
 
