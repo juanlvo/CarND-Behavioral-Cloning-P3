@@ -367,9 +367,9 @@ Left Image:<br>
 Right Image:<br>
 ![alt text][image4]<br>
 
-As you can see was use it the 3 cameras with a creection of +/- 0.2 in the angle 
+As you can see was used it the 3 cameras with a corection of +/- 0.2 in the angle 
 
-To augment the data sat, was also flipped images and angles to have more accuracy from the model.
+To augment the data set, was also flipped the images and angles to have more accuracy from the model.
 
 This data set was randomly shuffled and putted Y% of the data into a validation set. 
 
