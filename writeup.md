@@ -358,9 +358,14 @@ Here is a visualization of the architecture
 
 Here are some examples of the dataset use by the solution
 
-![alt text][image2]
-![alt text][image3]
-![alt text][image4]
+Center Image:<br>
+![alt text][image2]<br>
+
+Left Image:<br>
+![alt text][image3]<br>
+
+Right Image:<br>
+![alt text][image4]<br>
 
 As you can see was use it the 3 cameras with a creection of +/- 0.2 in the angle 
 
