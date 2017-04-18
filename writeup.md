@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: .nvidia.png "Model Visualization NVIDIA"
+[image1]: nvidia.png "Model Visualization NVIDIA"
 
 
 ## Rubric Points
