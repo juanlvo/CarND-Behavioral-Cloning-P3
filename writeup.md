@@ -17,6 +17,10 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: nvidia.png "Model Visualization NVIDIA"
+[image2]: center.png "Center camera in the car"
+[image3]: left.png "Left camera in the car"
+[image4]: right.png "Right camera in the car"
+[image5]: figure_1_16.png "Training graph"
 
 
 ## Rubric Points
@@ -335,41 +339,35 @@ Then after to improve the model was added ELUs after every dropout and finally w
 
 The final model architecture (model.py lines 103-130) is the implementation of NVIDIA model which is consisted by:
 
-1. Convolutional 24x5x5
-2. Convolutional 36x5x5
-3. Convolutional 48x5x5
-4. Convolutional 64x3x3
-5. Convolutional 64x3x3
-6. 
+1. Convolutional Layer 24x5x5
+2. Convolutional Layer 36x5x5
+3. Convolutional Layer 48x5x5
+4. Convolutional Layer 64x3x3
+5. Convolutional Layer 64x3x3
+6. Flatten Layer
+7. Dense Layer 100
+8. Dense Layer 50
+9. Dense Layer 10
+10. Dense Layer 1
 
 Here is a visualization of the architecture
 
 ![alt text][image1]
 
-####3. Creation of the Training Set & Training Process
+####3. Dataset provided by udacity
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+Here are some examples of the dataset use by the solution
 
 ![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
 ![alt text][image3]
 ![alt text][image4]
+
+As you can see was use it the 3 cameras with a creection of +/- 0.2 in the angle 
+
+To augment the data sat, was also flipped images and angles to have more accuracy from the model.
+
+This data set was randomly shuffled and putted Y% of the data into a validation set. 
+
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 30 as evidenced here is a graphic of the training
+
 ![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
