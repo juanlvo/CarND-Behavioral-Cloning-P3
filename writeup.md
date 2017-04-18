@@ -302,9 +302,9 @@ My model is the implementation of the neural network of NVIDEA, this network con
 </table>
 
 
-Total params: 559,419
-Trainable params: 559,419
-Non-trainable params: 0
+Total params: 559,419<br>
+Trainable params: 559,419<br>
+Non-trainable params: 0<br>
 
 
 ####2. Attempts to reduce overfitting in the model
