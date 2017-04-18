@@ -134,7 +134,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-My model is the implementation of the neural network of NVIDEA, this network consist in
+The model which was implemented was the neural network of NVIDEA, this network consist in
 
 <table>
 	<tr>
