@@ -33,7 +33,7 @@ The goals / steps of this project are the following:
     <tr>
     <tr>
         <td>Are all required files submitted?</td>
-        <td>The submission includes a model.py file, drive.py, model.h5 a writeup report and run16.mp4</td>
+        <td>The submission includes<br> -model.py file<br> -drive.py<br> -model.h5<br> -this writeup report<br> -run16.mp4</td>
     </tr>
 </table> 
 
