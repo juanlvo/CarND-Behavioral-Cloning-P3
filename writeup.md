@@ -324,25 +324,25 @@ The training dataset was provided by Udacity.com because is more suitable than t
 
 The overall strategy for deriving a model architecture was to try with the different types of models propose in the course (LeNet, Lambda and NVIDIA)
 
-In LeNet and Lambda was not really accurate when was driving the autonmous car, but NVdea
+With LeNet and Lambda was not really accurate when was driving the autonmous car, but NVIDIA was more accurate at the starting of the driving, this was a good sign for starting, that's why was choose this type of architecture.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+But after of this good start was need it to improve the accurate so first was added a dropout after every convolutional network and changing the values of every dropout until realize the best version was 59%, 49%, 39%, 29% and 19%, The decision of these numbers was complety random after several sessions of testing.
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+Then after to improve the model was added ELUs after every dropout and finally we got a acceptable model for driving the track 1
 
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 103-130) is the implementation of NVIDIA model which is consisted by:
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+1. Convolutional 24x5x5
+2. Convolutional 36x5x5
+3. Convolutional 48x5x5
+4. Convolutional 64x3x3
+5. Convolutional 64x3x3
+6. 
+
+Here is a visualization of the architecture
 
 ![alt text][image1]
 
